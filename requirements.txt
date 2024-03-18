@@ -1,0 +1,4 @@
+celery
+redis
+watchfiles
+honcho
