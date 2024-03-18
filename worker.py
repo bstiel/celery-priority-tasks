@@ -20,14 +20,14 @@ def enforce_priority(task):
             task.retry(countdown=2)
 
 
-@app.task(bind=True)
+@app.task(bind=True, max_retries=None)
 def task1(self, *args, **kwargs):
     enforce_priority(self)
     print(f"Hello from task1")
     sleep(1)
 
 
-@app.task(bind=True)
+@app.task(bind=True, max_retries=None)
 def task2(self, *args, **kwargs):
     enforce_priority(self)
     print(f"Hello from task2")
